@@ -9,8 +9,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      auto_install = true
-    }
+      auto_install = true,
+    },
   },
   {
     "neovim/nvim-lspconfig",
@@ -26,6 +26,10 @@ return {
       })
       lspconfig.html.setup({
         capabilities = capabilities,
+      })
+      -- Set up the hover window to have a border
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "rounded",
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
