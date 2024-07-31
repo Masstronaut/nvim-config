@@ -10,7 +10,9 @@ vim.wo.number = true
 vim.opt.cursorline = true
 
 -- Toggle between hybrid & absolute line numbers
--- In insert mode relative line numbers aren't helpful, so disable them
+-- This first one disables relative line numbers when:
+-- In insert mode
+-- The window/pane is not focused
 vim.api.nvim_create_autocmd({"InsertEnter", "WinLeave"}, {
     pattern = "*",
     callback = function()
