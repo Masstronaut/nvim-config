@@ -27,6 +27,9 @@ return {
       lspconfig.html.setup({
         capabilities = capabilities,
       })
+      lspconfig.svelte.setup({
+        capabilities = capabilities,
+      })
       -- Set up the hover window to have a border
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
         border = "rounded",
