@@ -18,18 +18,12 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.tsserver.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.svelte.setup({
-        capabilities = capabilities,
-      })
+      local mason_lspconfig = require("mason-lspconfig")
+      for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
+        lspconfig[server].setup({
+          capabilities = capabilities,
+        })
+      end
       -- Set up the hover window to have a border
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
         border = "rounded",

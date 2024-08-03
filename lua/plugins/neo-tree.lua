@@ -20,6 +20,9 @@ return {
     window = {
       position = "right",
     },
+    mappings = {
+      ["p"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+    },
     filesystem = {
       filtered_items = {
         visible = false,
@@ -30,5 +33,16 @@ return {
         },
       },
     },
+    event_handlers = {
+      {
+        -- Don't render line numbers in the neotree buffer
+        event = "neo_tree_buffer_enter",
+        handler = function()
+          vim.opt_local.relativenumber = false
+          vim.opt_local.number = false
+          vim.opt_local.statuscolumn = ""
+        end
+      }
+    }
   },
 }
