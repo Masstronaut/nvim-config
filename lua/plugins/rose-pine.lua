@@ -57,9 +57,9 @@ return {
 				LineNr3 = { fg = "#445464" },
 				LineNr2 = { fg = "#5D9E97" },
 				LineNr1 = { fg = "#7DAEB9" },
-				CursorLine = { bg = "#1A1B26" },
+				CursorLine = { bg = "surface" },
         NotifyBackground = { bg = "surface"}, -- nvim-notify background
-				--[[
+				--[[ this generates an error in the rose-pine highlighter fn
         LineNrCurr = { fg = "#BDEEF9", style = { "bold" } },
       ]]
 			},

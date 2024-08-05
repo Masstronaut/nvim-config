@@ -10,7 +10,7 @@ return {
     -- Toggle the neo-tree pane with <C-n>
     {
       "<C-n>",
-      ":Neotree toggle<CR>",
+      "<cmd>Neotree toggle<CR>",
       { noremap = true, silent = true },
       desc = "Toggle the Neotree pane",
     },

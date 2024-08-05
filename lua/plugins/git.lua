@@ -10,8 +10,8 @@ return {
       require("gitsigns").setup()
     end,
 		keys = {
-			{ "<leader>gp", ":Gitsigns preview_hunk<CR>" },
-			{ "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>" },
+			{ "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>" , desc = "Git Preview hunk"},
+			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Git blame current line" },
 		},
 	},
 }
