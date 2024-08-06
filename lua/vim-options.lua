@@ -5,7 +5,6 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.g.mapleader = " "
 
-vim.opt.laststatus = 2 -- Always show the status line
 vim.o.swapfile = false -- Disable swap files
 vim.wo.relativenumber = true -- Enable relative line numbers
 vim.wo.number = true -- Enable line numbers
@@ -37,6 +36,50 @@ vim.keymap.set("n", "<leader>wH", "<cmd>wincmd H<CR>", { noremap = true, silent 
 vim.keymap.set("n", "<leader>wJ", "<cmd>wincmd J<CR>", { noremap = true, silent = true, desc = "Move pane down" })
 vim.keymap.set("n", "<leader>wK", "<cmd>wincmd K<CR>", { noremap = true, silent = true, desc = "Move pane up" })
 vim.keymap.set("n", "<leader>wL", "<cmd>wincmd L<CR>", { noremap = true, silent = true, desc = "Move pane right" })
+
+vim.keymap.set(
+	"n",
+	"<leader>w+",
+	function()
+    local count = vim.v.count
+    if count == 0 then count = 2 end
+    vim.cmd("resize +" .. (count) .. "<cr>")
+  end,
+	{ noremap = true, silent = true, desc = "Increase pane height" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>w-",
+	function()
+    local count = vim.v.count
+    if count == 0 then count = 2 end
+    vim.cmd("resize -" .. (count) .. "<cr>")
+  end,
+	{ noremap = true, silent = true, desc = "Decrease pane height" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>w<",
+	function()
+    local count = vim.v.count
+    if count == 0 then count = 2 end
+    vim.cmd("vertical resize +" .. (count) .. "<cr>")
+  end,
+	{ noremap = true, silent = true, desc = "Decrease pane width" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>w>",
+	function()
+    local count = vim.v.count
+    if count == 0 then count = 2 end
+    vim.cmd("vertical resize -" .. (count) .. "<cr>")
+  end,
+	{ noremap = true, silent = true, desc = "Increase pane width" }
+)
+
+-- window resize commands
+
 -- Toggle between hybrid & absolute line numbers
 -- This first one disables relative line numbers when:
 -- In insert mode
