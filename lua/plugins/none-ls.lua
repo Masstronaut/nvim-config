@@ -12,9 +12,8 @@ return {
         null_ls.builtins.formatting.prettierd,
         require("none-ls.diagnostics.eslint_d"),
         null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.isort
+        null_ls.builtins.formatting.isort,
       },
     })
-    vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, {desc = "Format file"})
   end,
 }
