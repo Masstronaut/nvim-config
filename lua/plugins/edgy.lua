@@ -11,6 +11,22 @@ return {
       function()
         require("lazy").load({ plugins = { "neo-tree.nvim" } })
         require("edgy").toggle("right")
+
+        -- focus the file tree pane after opening
+        vim.schedule(function()
+          local all_win_ids = vim.api.nvim_list_wins()
+          local edgy = require("edgy")
+          -- Iterate over each window ID
+          for _, win_id in ipairs(all_win_ids) do
+            -- Get the Edgy.Window object for the current window ID
+            local win = edgy.get_win(win_id)
+
+            -- If the window exists in edgy and is the "Files" window, focus it
+            if win and win.view.get_title() == "Files" then
+              vim.api.nvim_set_current_win(win_id)
+            end
+          end
+        end)
       end,
       desc = "Panes: Right (toggle)",
     },
