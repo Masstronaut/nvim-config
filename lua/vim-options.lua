@@ -37,46 +37,34 @@ vim.keymap.set("n", "<leader>wJ", "<cmd>wincmd J<CR>", { noremap = true, silent 
 vim.keymap.set("n", "<leader>wK", "<cmd>wincmd K<CR>", { noremap = true, silent = true, desc = "Move pane up" })
 vim.keymap.set("n", "<leader>wL", "<cmd>wincmd L<CR>", { noremap = true, silent = true, desc = "Move pane right" })
 
-vim.keymap.set(
-	"n",
-	"<leader>w+",
-	function()
-    local count = vim.v.count
-    if count == 0 then count = 2 end
-    vim.cmd("resize +" .. (count) .. "<cr>")
-  end,
-	{ noremap = true, silent = true, desc = "Increase pane height" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>w-",
-	function()
-    local count = vim.v.count
-    if count == 0 then count = 2 end
-    vim.cmd("resize -" .. (count) .. "<cr>")
-  end,
-	{ noremap = true, silent = true, desc = "Decrease pane height" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>w<",
-	function()
-    local count = vim.v.count
-    if count == 0 then count = 2 end
-    vim.cmd("vertical resize +" .. (count) .. "<cr>")
-  end,
-	{ noremap = true, silent = true, desc = "Decrease pane width" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>w>",
-	function()
-    local count = vim.v.count
-    if count == 0 then count = 2 end
-    vim.cmd("vertical resize -" .. (count) .. "<cr>")
-  end,
-	{ noremap = true, silent = true, desc = "Increase pane width" }
-)
+vim.keymap.set("n", "<leader>w+", function()
+	local count = vim.v.count
+	if count == 0 then
+		count = 2
+	end
+	vim.cmd("resize +" .. count .. "<cr>")
+end, { noremap = true, silent = true, desc = "Increase pane height" })
+vim.keymap.set("n", "<leader>w-", function()
+	local count = vim.v.count
+	if count == 0 then
+		count = 2
+	end
+	vim.cmd("resize -" .. count .. "<cr>")
+end, { noremap = true, silent = true, desc = "Decrease pane height" })
+vim.keymap.set("n", "<leader>w<", function()
+	local count = vim.v.count
+	if count == 0 then
+		count = 2
+	end
+	vim.cmd("vertical resize +" .. count .. "<cr>")
+end, { noremap = true, silent = true, desc = "Decrease pane width" })
+vim.keymap.set("n", "<leader>w>", function()
+	local count = vim.v.count
+	if count == 0 then
+		count = 2
+	end
+	vim.cmd("vertical resize -" .. count .. "<cr>")
+end, { noremap = true, silent = true, desc = "Increase pane width" })
 
 -- window resize commands
 
