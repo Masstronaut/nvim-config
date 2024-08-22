@@ -56,8 +56,8 @@ return {
 				highlight_groups = {
 					LineNr4 = { fg = "#3B4261" },
 					LineNr3 = { fg = "#445464" },
-					LineNr2 = { fg = "#5D9E97" },
-					LineNr1 = { fg = "#7DAEB9" },
+					LineNr2 = { fg = "pine" },
+					LineNr1 = { fg = "foam" },
 					CursorLine = { bg = "surface" },
 					NotifyBackground = { bg = "surface" }, -- nvim-notify background
 					--[[ this generates an error in the rose-pine highlighter fn
